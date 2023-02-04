@@ -231,41 +231,38 @@
             </p>
         </div>
     </div>
-    <div class="container">
+
+    <div class="w3-content w3-container w3-padding-64">
         <div class="row mt-5">
-            <div class="col-md-8 mx-auto">
-                <form _lpchecked="1">
+            <div class="w3-col m6 w3-padding-large">
+                <h4><b>Võta ühendust</b></h4>
+                <p>Maret Pluutus</p>
+                <p>Rakvere, Eesti</p>
+                <p>maret.pluutus@gmail.com</p>
+            </div>
+            <div class="w3-col m6 w3-center w3-padding-large">
+                <form action="mailto:maret.pluutus@gmail.com" method="get" enctype="text/plain">
+                    <input type="hidden" name="subject" value="Maalid"/>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Teie nimi">
+                                <input type="text" name="name" class="form-control" placeholder="Teie nimi">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Teie emaili aadress">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="tel" class="form-control" placeholder="Telefoni number">
+                                <input type="text" id="email" name="from" class="form-control" placeholder="Teie emaili aadress">
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea rows="5" class="form-control"
+                                <textarea name="body" rows="5" class="form-control"
                                           placeholder="Millest te huvitute?"></textarea>
                             </div>
                         </div>
                     </div>
                     <div class="text-center mt-3">
-                        <button type="submit" class="text-white btn btn-primary" id="mailto">
-                            <a class="text-white"
-                               href="mailto:maret.pluutus@gmail.com?Subject=Maalid"
-                               target="_top">
-                                Koosta email <i class="text-white far fa-envelope"></i>
-                            </a>
-                        </button>
+                        <input type="submit" class="text-white btn btn-primary" id="mailto" value="Koosta email"/>
                     </div>
 
                 </form>
