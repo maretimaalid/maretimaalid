@@ -1,5 +1,10 @@
 name: Generate html
 
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   update:
     name: Generate html with djinja2
