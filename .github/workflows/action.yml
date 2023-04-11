@@ -15,4 +15,4 @@ jobs:
       uses: jayamanikharyono/jinja-action@v1.1
       with:
         datafile: test/data.json
-        path: test/*.html
+        path: /test/*.html
