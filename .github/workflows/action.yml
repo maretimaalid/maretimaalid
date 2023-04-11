@@ -1,6 +1,6 @@
 jobs:
   build:
-    - name: Generate html
+      name: Generate html
       uses: jayamanikharyono/jinja-action@v2
       with:
         datafile: test/data.json
