@@ -14,5 +14,5 @@ jobs:
     - name: Jinja2 Templating
       uses: jayamanikharyono/jinja-action@v1.1
       with:
-        datafile: test/data.json
-        path: test/*.html
+        datafile: tests/data.json
+        path: tests/*.html
