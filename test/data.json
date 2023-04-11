@@ -1,0 +1,14 @@
+{
+  "paintings": [
+    {
+      "file_name": "meri_1.jpg",
+      "title": "Meri",
+      "description": "Suurus: 80x80cm"
+    },
+    {
+      "file_name": "meri_2.jpg",
+      "title": "Meri",
+      "description": "Suurus: 55x46cm"
+    }
+  ]
+}
