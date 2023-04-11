@@ -1,7 +1,5 @@
-jobs:
-  build:
-      name: Generate html
-      uses: jayamanikharyono/jinja-action@v1.1
-      with:
-        datafile: test/data.json
-        path: test/index.html
+- name: Generate html
+  uses: jayamanikharyono/jinja-action@v1.1
+  with:
+    datafile: test/data.json
+    path: test/index.html
