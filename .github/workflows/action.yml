@@ -2,7 +2,10 @@ name: Generate html
 
 jobs:
   update:
-      name: Jinja2 Templating
+    name: Generate html with djinja2
+
+    steps:
+    - name: Jinja2 Templating
       uses: jayamanikharyono/jinja-action@v1.1
       with:
         datafile: test/data.json
