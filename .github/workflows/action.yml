@@ -8,6 +8,7 @@ on:
 jobs:
   update:
     name: Generate html with djinja2
+    runs-on: ubuntu-latest
 
     steps:
     - name: Jinja2 Templating
