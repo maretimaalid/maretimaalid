@@ -11,8 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Jinja2 Templating
-      uses: jayamanikharyono/jinja-action@v1.1
-      with:
-        datafile: tests/data.json
-        path: tests/*.html
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Jinja2 Templating
+        uses: jayamanikharyono/jinja-action@v1.1
+        with:
+          datafile: tests/data.json
+          path: tests/*.html
