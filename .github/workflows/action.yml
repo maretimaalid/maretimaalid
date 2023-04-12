@@ -1,12 +1,11 @@
-name: Generate html
+name: Generate html and deploy
 
 on:
   push:
-    branches:
-      - main
+    branches: [$default-branch]
 
 jobs:
-  update:
+  build:
     name: Generate html with djinja2
     runs-on: ubuntu-latest
 
@@ -18,4 +17,26 @@ jobs:
         uses: jayamanikharyono/jinja-action@v1.1
         with:
           datafile: tests/data.json
-          path: tests/*.html
+          path: dist/*.html
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./dist
+
+  deploy:
+    needs: build
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+      runs-on: ubuntu-latest
+      steps:
+        - name: Deploy to GitHub Pages
+          id: deployment
+          uses: actions/deploy-pages@v2
