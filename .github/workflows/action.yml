@@ -29,7 +29,7 @@ jobs:
         run: libreoffice --convert-to xlsx export.ods
 
       - name: Export paintings data from xlsx file
-        run: python mainexport_to_json.py
+        run: python main.py
         shell: sh
 
       - name: Jinja2 Templating
