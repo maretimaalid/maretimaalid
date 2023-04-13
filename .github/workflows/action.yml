@@ -15,6 +15,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Install python requirements
+        run: pip install -r requirements.txt
+        shell: sh
+
+      - name: Install libreoffice
+        run: sudo apt install libreoffice-writer
+
+      - name: Download sheets ods
+        run: wget https://docs.google.com/spreadsheets/d/1gt70J1CnQlIAVEpQT0LjjedoS4oo3p1vAPYQG2qLoKk/export?exportFormat=ods -O export.ods
+
+      - name: Convert ods to xlsx
+        run: libreoffice --convert-to xlsx export.ods
+
+      - name: Export paintings data from xlsx file
+        run: python mainexport_to_json.py
+        shell: sh
+
       - name: Jinja2 Templating
         uses: jayamanikharyono/jinja-action@v1.1
         with:

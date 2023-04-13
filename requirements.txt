@@ -1,0 +1,4 @@
+pyexcel-ods==0.6.0
+openpyxl-image-loader==1.0.5
+openpyxl~=3.1.2
+Pillow~=9.5.0
