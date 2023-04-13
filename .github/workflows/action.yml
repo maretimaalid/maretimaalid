@@ -1,4 +1,4 @@
-name: Generate html and deploy
+name: build and deploy
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
         shell: sh
 
       - name: Install libreoffice
-        run: sudo apt install libreoffice-writer
+        run: sudo apt install libreoffice-calc
 
       - name: Download sheets ods
         run: wget https://docs.google.com/spreadsheets/d/1gt70J1CnQlIAVEpQT0LjjedoS4oo3p1vAPYQG2qLoKk/export?exportFormat=ods -O export.ods
