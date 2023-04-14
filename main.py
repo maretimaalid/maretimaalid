@@ -7,11 +7,15 @@ import hashlib
 img_base_width = 1500
 
 
-def write_image_to_file(image, file_name):
+def write_image_to_file(image):
+    format = 'webp'
+    name = get_image_sha1(image)
+    file_name = f'dist/img/{name}.{format}'
     wpercent = (img_base_width / float(image.size[0]))
     hsize = int((float(image.size[1]) * float(wpercent)))
     image = image.resize((img_base_width, hsize), Image.LANCZOS)
-    image.save(file_name)
+    image.save(file_name, format, optimize=True, quality=60)
+    return file_name
 
 
 def get_image_sha1(image):
@@ -37,15 +41,17 @@ def main():
         for key, cell in zip(keys, row):
             value = cell.value
             if image_loader.image_in(cell.coordinate):
-                image = image_loader.get(cell.coordinate)
-                file_name = f'{get_image_sha1(image)}.jpg'
-                write_image_to_file(image, f'dist/img/{file_name}')
+                image: Image = image_loader.get(cell.coordinate)
+                file_name = write_image_to_file(image)
                 value = file_name
             painting_data[key] = value
         paintings_data.append(painting_data)
+        break
     data = {'paintings': paintings_data}
-    with open('data.json', 'w') as f:
-        json.dump(data, f)
+    print(json.dumps(data))
+    print(data)
+    # with open('data.json', 'w') as f:
+    #     json.dump(data, f)
 
 
 if __name__ == '__main__':
