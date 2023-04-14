@@ -46,7 +46,6 @@ def main():
                 value = file_name
             painting_data[key] = value
         paintings_data.append(painting_data)
-        break
     data = {'paintings': paintings_data}
     print(json.dumps(data))
     with open('data.json', 'w') as f:
