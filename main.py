@@ -49,9 +49,8 @@ def main():
         break
     data = {'paintings': paintings_data}
     print(json.dumps(data))
-    print(data)
-    # with open('data.json', 'w') as f:
-    #     json.dump(data, f)
+    with open('data.json', 'w') as f:
+        json.dump(data, f)
 
 
 if __name__ == '__main__':
