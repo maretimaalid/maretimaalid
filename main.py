@@ -10,11 +10,11 @@ img_base_width = 1500
 def write_image_to_file(image):
     format = 'webp'
     name = get_image_sha1(image)
-    file_name = f'dist/img/{name}.{format}'
+    file_name = f'{name}.{format}'
     wpercent = (img_base_width / float(image.size[0]))
     hsize = int((float(image.size[1]) * float(wpercent)))
     image = image.resize((img_base_width, hsize), Image.LANCZOS)
-    image.save(file_name, format, optimize=True, quality=60)
+    image.save(f'dist/img/{file_name}', format, optimize=True, quality=60)
     return file_name
 
 
