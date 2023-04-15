@@ -45,6 +45,9 @@ def main():
                 file_name = write_image_to_file(image)
                 value = file_name
             painting_data[key] = value
+        # If first key(title) value is empty then skip the whole row
+        if painting_data[keys[0]] is None:
+            continue
         paintings_data.append(painting_data)
     data = {'paintings': paintings_data}
     print(json.dumps(data))

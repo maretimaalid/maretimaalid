@@ -62,7 +62,7 @@
                             <img src="img/{{ painting.file_name }}" alt="{{ painting.title }}" class="card-img-top">
                             {% if painting.price %}
                             <p class="price-badge">
-                                <span class="currency-price">{{ "EUR {:0,.2f}"|format(float(painting.price)) }}</span>
+                                <span class="currency-price">{{ "EUR {:0,.2f}"|format(painting.price) }}</span>
                             </p>
                             {% endif %}
                         </a>
