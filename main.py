@@ -45,8 +45,8 @@ def main():
                 file_name = write_image_to_file(image)
                 value = file_name
             painting_data[key] = value
-        # If first key(title) value is empty then skip the whole row
-        if painting_data[keys[0]] is None:
+        # If one of the first 3 keys('title','description','file_data') value is empty then skip the whole row
+        if any(painting_data[key] is None for key in keys[:3]):
             continue
         paintings_data.append(painting_data)
     data = {'paintings': paintings_data}
