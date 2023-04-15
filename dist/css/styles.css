@@ -51,6 +51,25 @@ h2 {
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
 }
 
+.gallery-block.cards-gallery .card .card-content {
+    position: relative;
+}
+
+.gallery-block.cards-gallery .card .currency-price {
+        font-weight: bold;
+}
+
+.gallery-block.cards-gallery .card .price-badge {
+    position: absolute;
+    bottom: 0px;
+    padding: 2px 6px;
+    border: 1px solid rgba(34,34,34,.15);
+    border-radius: 15px;
+    background: #fff;
+    color: inherit;
+    margin: 6px;
+}
+
 .gallery-block.cards-gallery .card-body {
     text-align: center;
 }
