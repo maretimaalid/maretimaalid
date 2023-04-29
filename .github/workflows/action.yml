@@ -33,7 +33,7 @@ jobs:
         shell: sh
 
       - name: Jinja2 Templating
-        uses: jayamanikharyono/jinja-action@v1.1
+        uses: jayamanikharyono/jinja-action@master
         with:
           datafile: data.json
           path: dist/*.html
