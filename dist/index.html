@@ -11,9 +11,9 @@
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css"/>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="./css/photoswipe.css">
 </head>
 
 <body>
@@ -53,28 +53,34 @@
     </div>
     <!-- CARD GALLERY -->
     <section class="gallery-block cards-gallery">
-        <div class="container">
-            <div class="row">
+        <div class="gallery-block cards-gallery" id="gallery">
+            <div class="container">
+                <div class="row">
                 {% for painting in paintings %}
-                <div class="col-md-6 col-lg-4">
-                    <div class="card border-0 transform-on-hover">
-                        <a class="lightbox card-content" href="img/{{ painting.file_name }}">
-                            <img src="img/{{ painting.file_name }}" alt="{{ painting.title }}" class="card-img-top">
-                            {% if painting.price %}
-                            <p class="price-badge">
-                                <span class="currency-price">EUR {{ "{:,.2f}".format(painting.price) }}</span>
-                            </p>
-                            {% endif %}
-                        </a>
-                        <div class="card-body">
-                            <h6>
-                                <a href="#">{{ painting.title }}</a>
-                            </h6>
-                            <p class="text-muted card-text">{{ painting.description }}</p>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-0 transform-on-hover">
+                            <a class="lightbox card-content" href="{{ painting.image.high.full_file_path }}"
+                               data-pswp-srcset="{{ painting.image.medium.full_file_path }} 600w, {{ painting.image.high.full_file_path }} 1200w"
+                                data-pswp-width="{{ painting.image.high.width }}"
+                                data-pswp-height="{{ painting.image.high.height }}"
+                                target="_blank">
+                                <img src="{{ painting.image.low.full_file_path }}" alt="{{ painting.title }}" class="card-img-top"/>
+                                {% if painting.price %}
+                                <p class="price-badge">
+                                    <span class="currency-price">EUR {{ "{:,.2f}".format(painting.price) }}</span>
+                                </p>
+                                {% endif %}
+                            </a>
+                            <div class="card-body">
+                                <h6>
+                                    <div>{{ painting.title }}</div>
+                                </h6>
+                                <p class="text-muted card-text">{{ painting.description }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
                 {% endfor %}
+                </div>
             </div>
         </div>
     </section>
@@ -156,17 +162,16 @@
     </div>
 </section>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
-        crossorigin="anonymous"></script>
+<script src="./js/photoswipe.umd.min.js"></script>
+<script src="./js/photoswipe-lightbox.umd.min.js"></script>
 
-<!-- local script file  -->
-<script>
-    baguetteBox.run('.compact-gallery', {animation: 'slideIn'});
-
+<script type="text/javascript">
+      var lightbox = new PhotoSwipeLightbox({
+        gallery: '#gallery',
+        children: 'a',
+        pswpModule: PhotoSwipe
+      });
+      lightbox.init();
 </script>
 
 </body>

@@ -30,12 +30,9 @@ h2 {
 
 .gallery-block {
     padding-bottom: 60px;
-    padding-top: 60px;
 }
-
-.gallery-block {
-    padding-bottom: 60px;
-    padding-top: 60px;
+.gallery-block.cards-gallery {
+    padding-top: 20px;
 }
 
 .gallery-block.cards-gallery h6 {
