@@ -69,6 +69,9 @@
                                     {% endif %}
                                         EUR {{ "{:,.2f}".format(painting.price) }}
                                     </span>
+                                    {% if painting.sold %}
+                                        <span class="currency-price">Müüdud</span>>
+                                    {% endif %}
                                 </p>
                                 {% endif %}
                             </a>
