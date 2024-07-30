@@ -19,6 +19,9 @@ jobs:
         run: pip install -r requirements.txt
         shell: sh
 
+      - name: update
+        run: sudo apt update
+
       - name: Install libreoffice
         run: sudo apt install libreoffice-calc
 
