@@ -85,6 +85,7 @@ def main():
             painting_data[key] = value
         # If one of the first 3 keys('title','description','file_data') value is empty then skip the whole row
         if any(painting_data[key] is None for key in keys[:3]):
+            print(f"WARNING! skipped row with data: {json.dumps(painting_data)}")
             continue
         paintings_data.append(painting_data)
     data = {'paintings': paintings_data}
