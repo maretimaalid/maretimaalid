@@ -62,16 +62,13 @@
                                 <img src="{{ painting.image.low.full_file_path }}" alt="{{ painting.title }}" class="card-img-top"/>
                                 {% if painting.price %}
                                 <p class="price-badge">
-                                    {% if painting.sold %}
-                                    <span class="currency-price sold">
-                                    {% else %}
                                     <span class="currency-price">
-                                    {% endif %}
-                                        EUR {{ "{:,.2f}".format(painting.price) }}
-                                    </span>
                                     {% if painting.sold %}
                                         <span class="currency-price">Müüdud</span>
+                                    {% else %}
+                                        EUR {{ "{:,.2f}".format(painting.price) }}
                                     {% endif %}
+                                    </span>
                                 </p>
                                 {% endif %}
                             </a>
